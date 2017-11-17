@@ -20,7 +20,7 @@ class CurrencyCoder
     end
 
     parts = name.split(VOWELS_REGEXP)
-    parts = parts.select { |p| p != "" }
+    parts = parts.reject(&:empty?)
     parts = parts.map do |p|
       if m = p.match(CONSONANTS_REGEXP)
         p = p[(m[1].length)..-1]
