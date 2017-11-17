@@ -29,7 +29,7 @@ class CurrencyCoder
       end
     end
 
-    if !code_ary[2].nil?
+    if code_ary[2]
       code_ary[1] = select_special_chars(parts, 1)
     elsif parts.length == 2
       code_ary[1..2] = parts.map { |p| p[0] }
