@@ -7,7 +7,7 @@ class CurrencyCoder
   CONSONANTS_REGEXP = Regexp.new("([N]+)[#{CONSONANTS.join}]+")
 
   def as_currency_code(name)
-    name = name.dup.upcase
+    name = name.upcase
 
     first    = name[0]
     code_ary = [first]
