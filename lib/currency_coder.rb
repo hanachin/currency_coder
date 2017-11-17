@@ -1,8 +1,10 @@
 require "currency_coder/version"
 
 class CurrencyCoder
-  VOWELS     = %w[A I U E O]
-  CONSONANTS = %w[B C D F G H J K L M P Q R S T V W X Y Z]
+  VOWELS            = %w[A I U E O]
+  VOWELS_REGEXP     = Regexp.new("[#{VOWELS.join}]+")
+  CONSONANTS        = %w[B C D F G H J K L M P Q R S T V W X Y Z]
+  CONSONANTS_REGEXP = Regexp.new("([N]+)[#{CONSONANTS.join}]+")
 
   def as_currency_code(name)
     name = name.dup.upcase
@@ -17,10 +19,10 @@ class CurrencyCoder
       name = name[0..-2]
     end
 
-    parts = name.split(Regexp.new("[#{VOWELS.join}]+"))
+    parts = name.split(VOWELS_REGEXP)
     parts = parts.select { |p| p != "" }
     parts = parts.map do |p|
-      if m = p.match(Regexp.new("([N]+)[#{CONSONANTS.join}]+"))
+      if m = p.match(CONSONANTS_REGEXP)
         p = p[(m[1].length)..-1]
       end
       p
