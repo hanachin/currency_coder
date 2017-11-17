@@ -32,7 +32,8 @@ class CurrencyCoder
     if code_ary[2]
       code_ary[1] = select_special_chars(parts, 1)
     elsif parts.length == 2
-      code_ary[1..2] = parts.map { |p| p[0] }
+      code_ary[1] = parts[0][0]
+      code_ary[2] = parts[1][0]
     else
       code_ary[2] = parts[-1][0]
       parts = parts[0..-2]
