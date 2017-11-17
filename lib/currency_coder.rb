@@ -24,8 +24,9 @@ class CurrencyCoder
     parts = parts.map do |p|
       if m = p.match(CONSONANTS_REGEXP)
         p = p[(m[1].length)..-1]
+      else
+        p
       end
-      p
     end
 
     if !code_ary[2].nil?
