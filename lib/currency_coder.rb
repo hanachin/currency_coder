@@ -23,7 +23,7 @@ class CurrencyCoder
     parts = parts.reject(&:empty?)
     parts = parts.map do |p|
       if m = p.match(CONSONANTS_REGEXP)
-        p = p[(m[1].length)..-1]
+        p[(m[1].length)..-1]
       else
         p
       end
