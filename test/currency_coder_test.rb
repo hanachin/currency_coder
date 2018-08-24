@@ -20,5 +20,9 @@ class CurrencyCoderTest < Minitest::Test
     currency_map.each do |name, code|
       assert_equal code, cc.as_currency_code(name)
     end
+
+    currency_map.each do |name, code|
+      assert_equal code, cc.as_currency_code2(name)
+    end
   end
 end

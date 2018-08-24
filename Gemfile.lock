@@ -6,17 +6,23 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    benchmark-ips (2.7.2)
+    debugger-ruby_core_source (1.3.8)
     minitest (5.10.3)
     rake (10.5.0)
+    rblineprof (0.3.7)
+      debugger-ruby_core_source (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  benchmark-ips
   bundler (~> 1.14)
   currency_coder!
   minitest (~> 5.0)
   rake (~> 10.0)
+  rblineprof
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
